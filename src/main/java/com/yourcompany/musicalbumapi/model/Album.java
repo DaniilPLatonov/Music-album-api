@@ -15,6 +15,7 @@ public class Album {
 
     private String title;
     private String artist;
+    @Column(name = "release_year")
     private int releaseYear;
     private String genre;
 

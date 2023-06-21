@@ -11,7 +11,7 @@ public class Song {
     private Long id;
 
     private String title;
-    @Column(name = "recordlabel")
+    @Column(name = "record_label")
     private String recordLabel;
     private int duration;
     private String lyrics;
