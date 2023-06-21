@@ -18,9 +18,10 @@ public class Song {
     private String language;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "album_id")
+    @JoinColumn(name = "albumId")
     @JsonBackReference
     private Album album;
+
 
     public Song(Long id, String title, String recordLabel, int duration, String lyrics, String language, Album album) {
         this.id = id;
@@ -89,5 +90,9 @@ public class Song {
 
     public void setAlbum(Album album) {
         this.album = album;
+    }
+
+    public Long getAlbumId() {
+        return album != null ? album.getId() : null;
     }
 }
