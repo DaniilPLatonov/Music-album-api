@@ -6,61 +6,13 @@
 	},
 	"item": [
 		{
-			"name": "UpdateSongs",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"AAA123\",\r\n    \"recordLabel\": \"Моя Запись23\",\r\n    \"duration\": 180,\r\n    \"lyrics\": \"Текст песни AAA123\",\r\n    \"language\": \"Русский23\",\r\n    \"album\": {\r\n        \"id\": 2\r\n    }\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/songs/8",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"songs",
-						"8"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GetAllSongs",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/songs",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"songs"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "CreateSongs",
+			"name": "CreateAlbums",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"ddd\",\r\n    \"recordLabel\": \"AAA\",\r\n    \"duration\": 12345,\r\n    \"lyrics\": \"dsbrb\",\r\n    \"language\": \"dsbrb\",\r\n    \"album\": {\r\n        \"id\": 1\r\n    }\r\n}",
+					"raw": "{\r\n    \"title\": \"Greatest Hits\",\r\n    \"artist\": \"Queen\",\r\n    \"releaseYear\": 1981,\r\n    \"genre\": \"Rock\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -68,63 +20,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/songs",
+					"raw": "http://localhost:8080/albums",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"songs"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "DeleteSongs",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/songs/8",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"songs",
-						"8"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "UpdateAlbums",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"AAA\",\r\n    \"artist\": \"AAA\",\r\n    \"releaseYear\": 1234,\r\n    \"genre\": \"dsbrb\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/albums/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"albums",
-						"1"
+						"albums"
 					]
 				}
 			},
@@ -150,21 +53,12 @@
 			"response": []
 		},
 		{
-			"name": "CreateAlbums",
+			"name": "GetAlbumsById",
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"AAA\",\r\n    \"artist\": \"AAA\",\r\n    \"releaseYear\": 1234,\r\n    \"genre\": \"dsbrb\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "http://localhost:8080/albums/2",
+					"raw": "http://localhost:8080/albums/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -172,7 +66,144 @@
 					"port": "8080",
 					"path": [
 						"albums",
-						"2"
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateSongs",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Greatest Hits\",\r\n    \"recordLabel\": \"Queen\",\r\n    \"duration\": 1981,\r\n    \"lyrics\": \"Rock\",\r\n    \"language\": \"English\",\r\n    \"album\": {\r\n        \"id\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/songs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"songs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllSongs",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"AAA123\",\r\n    \"recordLabel\": \"Моя Запись23\",\r\n    \"duration\": 180,\r\n    \"lyrics\": \"Текст песни AAA123\",\r\n    \"language\": \"Русский23\",\r\n    \"album\": {\r\n        \"id\": 2\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/songs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"songs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSongsById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/songs/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"songs",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateAlbums",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Greatest Hits\",\r\n    \"artist\": \"Queen\",\r\n    \"releaseYear\": 1981,\r\n    \"genre\": \"Rock\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/albums/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"albums",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateSongs",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Greatest Hits\",\r\n    \"recordLabel\": \"Queen\",\r\n    \"duration\": 1981,\r\n    \"lyrics\": \"Rock\",\r\n    \"language\": \"English\",\r\n    \"album\": {\r\n        \"id\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/songs/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"songs",
+						"1"
 					]
 				}
 			},
@@ -182,7 +213,39 @@
 			"name": "DeleteAlbums",
 			"request": {
 				"method": "DELETE",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/albums/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"albums",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteSongs",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/songs/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"songs",
+						"1"
+					]
+				}
 			},
 			"response": []
 		}

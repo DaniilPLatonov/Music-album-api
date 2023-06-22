@@ -2,6 +2,7 @@ package com.yourcompany.musicalbumapi.controllers;
 
 import com.yourcompany.musicalbumapi.model.Song;
 import com.yourcompany.musicalbumapi.service.SongService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,9 +31,13 @@ public class SongController {
     }
 
     @PostMapping
-    public ResponseEntity<Song> createSong(@RequestBody Song song) {
+    public ResponseEntity<?> createSong(@RequestBody Song song) {
         Song createdSong = songService.createSong(song);
-        return ResponseEntity.created(URI.create("/songs/" + createdSong.getId())).body(createdSong);
+        if (createdSong != null) {
+            return ResponseEntity.created(URI.create("/songs/" + createdSong.getId())).body(createdSong);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Такого альбома не существует");
+        }
     }
 
     @PutMapping("/{id}")

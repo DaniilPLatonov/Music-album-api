@@ -64,9 +64,21 @@ spring.datasource.url=jdbc:postgresql://localhost:5432/db_name
 spring.datasource.username=db_username
 spring.datasource.password=db_password
 spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+spring.datasource.hikari.maximum-pool-size=10
+spring.datasource.hikari.minimum-idle=5
+spring.datasource.hikari.connection-timeout=30000
+spring.datasource.hikari.idle-timeout=600000
+spring.datasource.hikari.close-spring-annotation=true
 ```
 
 Замените db_name, db_username и db_password соответствующими значениями вашей базы данных.
+
+ - spring.datasource.hikari.maximum-pool-size: Устанавливает максимальное количество соединений в пуле базы данных.
+
+ - spring.datasource.hikari.minimum-idle: Устанавливает минимальное количество неиспользуемых соединений в пуле базы данных. 
+ - spring.datasource.hikari.connection-timeout: Устанавливает максимальное время ожидания для получения соединения с базой данных. 
+ - spring.datasource.hikari.idle-timeout: Устанавливает максимальное время, в течение которого соединение может оставаться неиспользуемым в пуле базы данных, прежде чем будет закрыто.
+ - spring.datasource.hikari.close-spring-annotation: Указывает, должен ли пул соединений закрывать соединения автоматически при закрытии контекста Spring. Значение true означает, что соединения будут закрыты автоматически при завершении работы приложения.
 
 Порт приложения
 Если вы хотите изменить порт, на котором запускается приложение, отредактируйте значение в файле application.properties.
