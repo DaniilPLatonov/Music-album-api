@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class SongService {
+public class   SongService {
     private final SongRepository songRepository;
     private final AlbumRepository albumRepository;
 
